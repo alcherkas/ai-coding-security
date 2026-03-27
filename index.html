@@ -64,8 +64,54 @@
 
     .slide-nav-hint { position: fixed; bottom: 20px; right: 30px; font-size: 0.5em; color: rgba(255,255,255,0.3); }
 
-    .ascii-diagram { font-family: 'Courier New', monospace; font-size: 0.45em; line-height: 1.3; text-align: left; color: #8b949e; white-space: pre; }
-    .ascii-diagram .hl { color: #58a6ff; }
+    /* Nested layer rings diagram */
+    .ring { border: 2px solid; border-radius: 12px; padding: 0.35em 0.5em; text-align: center; }
+    .ring .ring-label { font-size: 0.55em; font-weight: 600; margin-bottom: 0.2em; letter-spacing: 0.03em; }
+    .ring-1 { border-color: #58a6ff; background: rgba(88,166,255,0.06); }
+    .ring-1 .ring-label { color: #58a6ff; }
+    .ring-2 { border-color: #79c0ff; background: rgba(121,192,255,0.05); }
+    .ring-2 .ring-label { color: #79c0ff; }
+    .ring-3 { border-color: #3fb950; background: rgba(63,185,80,0.05); }
+    .ring-3 .ring-label { color: #3fb950; }
+    .ring-4 { border-color: #d2a8ff; background: rgba(210,168,255,0.05); }
+    .ring-4 .ring-label { color: #d2a8ff; }
+    .ring-5 { border-color: #ff7b72; background: rgba(255,123,114,0.05); }
+    .ring-5 .ring-label { color: #ff7b72; }
+    .ring-6 { border-color: #f39c12; background: rgba(243,156,18,0.05); }
+    .ring-6 .ring-label { color: #f39c12; }
+    .ring-core { border: 2px solid #8b949e; border-radius: 10px; padding: 0.4em; background: rgba(139,148,158,0.06); font-size: 0.5em; color: #c9d1d9; line-height: 1.6; }
+
+    /* Sandbox layers diagram */
+    .sandbox-layer { border-radius: 10px; padding: 0.5em 0.7em; margin-bottom: 0; text-align: left; }
+    .sandbox-layer .sl-title { font-weight: 700; font-size: 0.8em; margin-bottom: 0.15em; }
+    .sandbox-layer .sl-detail { font-size: 0.6em; color: #8b949e; }
+    .sl-bwrap { border: 2px solid #58a6ff; background: rgba(88,166,255,0.08); }
+    .sl-bwrap .sl-title { color: #58a6ff; }
+    .sl-seccomp { border: 2px solid #f39c12; background: rgba(243,156,18,0.08); }
+    .sl-seccomp .sl-title { color: #f39c12; }
+    .sl-landlock { border: 2px solid #3fb950; background: rgba(63,185,80,0.08); }
+    .sl-landlock .sl-title { color: #3fb950; }
+    .sl-agent { border: 2px solid #d2a8ff; background: rgba(210,168,255,0.1); text-align: center; }
+    .sl-agent .sl-title { color: #d2a8ff; }
+
+    /* Flow diagram */
+    .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: nowrap; }
+    .flow-node { border-radius: 8px; padding: 0.5em 0.7em; text-align: center; font-size: 0.65em; font-weight: 600; min-width: 100px; }
+    .flow-arrow { font-size: 1.2em; color: #484f58; padding: 0 0.2em; }
+    .flow-blocked { border: 2px solid #ff7b72; background: rgba(255,123,114,0.1); color: #ff7b72; }
+    .flow-proxy { border: 2px solid #3fb950; background: rgba(63,185,80,0.1); color: #3fb950; min-width: 160px; }
+    .flow-neutral { border: 2px solid #58a6ff; background: rgba(88,166,255,0.1); color: #58a6ff; }
+    .flow-checks { display: flex; flex-direction: column; gap: 0.25em; font-size: 0.6em; text-align: left; color: #c9d1d9; margin-top: 0.5em; }
+    .flow-checks span { padding: 0.2em 0.5em; background: rgba(63,185,80,0.08); border-left: 3px solid #3fb950; border-radius: 0 4px 4px 0; }
+
+    /* Env tree diagram */
+    .env-tree { text-align: left; font-size: 0.7em; }
+    .env-tree .env-root { color: #ff7b72; font-weight: 700; font-size: 1.05em; margin-bottom: 0.4em; border-bottom: 1px solid rgba(255,123,114,0.3); padding-bottom: 0.3em; }
+    .env-tree .env-item { padding: 0.15em 0 0.15em 1.2em; border-left: 2px solid rgba(255,123,114,0.25); color: #c9d1d9; display: flex; align-items: center; gap: 0.5em; }
+    .env-tree .env-item:last-child { border-left-color: transparent; }
+    .env-tree .env-icon { font-size: 0.9em; width: 1.2em; text-align: center; }
+    .env-tree .env-key { color: #ffa657; font-family: 'Courier New', monospace; font-size: 0.9em; }
+    .env-tree .env-desc { color: #8b949e; font-size: 0.85em; }
   </style>
 </head>
 <body>
@@ -159,30 +205,28 @@
       <section>
         <section class="center-slide">
           <h2>Defense-in-Depth Layer Model</h2>
-          <div class="ascii-diagram">
-<span class="hl">┌─────────────────────────────────────────────────────────────────────────────┐</span>
-<span class="hl">│</span> LAYER 1: Infrastructure Isolation (Cloud Dev Envs, MicroVMs, Containers)  <span class="hl">│</span>
-<span class="hl">│ ┌─────────────────────────────────────────────────────────────────────────┐ │</span>
-<span class="hl">│ │</span> LAYER 2: OS Sandboxing (Seatbelt, bubblewrap, seccomp, Landlock)       <span class="hl">│ │</span>
-<span class="hl">│ │ ┌─────────────────────────────────────────────────────────────────────┐ │ │</span>
-<span class="hl">│ │ │</span> LAYER 3: Network Controls (Egress Filtering, Agent Proxies)          <span class="hl">│ │ │</span>
-<span class="hl">│ │ │ ┌─────────────────────────────────────────────────────────────────┐ │ │ │</span>
-<span class="hl">│ │ │ │</span> LAYER 4: Filesystem &amp; Permissions (.aiignore, Allowlists)         <span class="hl">│ │ │ │</span>
-<span class="hl">│ │ │ │ ┌─────────────────────────────────────────────────────────────┐ │ │ │ │</span>
-<span class="hl">│ │ │ │ │</span> LAYER 5: Secrets (Env Scrubbing, Credential Brokers)           <span class="hl">│ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ ┌─────────────────────────────────────────────────────────┐ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ │</span> LAYER 6: Human-in-the-Loop (Approvals, Permissions)        <span class="hl">│ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ │ ┌─────────────────────────────────────────────────────┐ │ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ │ │</span> L7: Prompt Injection  L8: Supply Chain               <span class="hl">│ │ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ │ │</span> L9: MCP Security      L10: Audit &amp; Observability     <span class="hl">│ │ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ │ │</span> L11: Governance &amp; Frameworks                        <span class="hl">│ │ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ │ └─────────────────────────────────────────────────────┘ │ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ │ └─────────────────────────────────────────────────────────┘ │ │ │ │ │</span>
-<span class="hl">│ │ │ │ └─────────────────────────────────────────────────────────────┘ │ │ │ │</span>
-<span class="hl">│ │ │ └─────────────────────────────────────────────────────────────────┘ │ │ │</span>
-<span class="hl">│ │ └─────────────────────────────────────────────────────────────────────┘ │ │</span>
-<span class="hl">│ └─────────────────────────────────────────────────────────────────────────┘ │</span>
-<span class="hl">└─────────────────────────────────────────────────────────────────────────────┘</span>
+          <div class="ring ring-1">
+            <div class="ring-label">LAYER 1 — Infrastructure Isolation</div>
+            <div class="ring ring-2">
+              <div class="ring-label">LAYER 2 — OS Sandboxing</div>
+              <div class="ring ring-3">
+                <div class="ring-label">LAYER 3 — Network Controls</div>
+                <div class="ring ring-4">
+                  <div class="ring-label">LAYER 4 — Filesystem &amp; Permissions</div>
+                  <div class="ring ring-5">
+                    <div class="ring-label">LAYER 5 — Secrets Management</div>
+                    <div class="ring ring-6">
+                      <div class="ring-label">LAYER 6 — Human-in-the-Loop</div>
+                      <div class="ring-core">
+                        L7: Prompt Injection &nbsp;&bull;&nbsp; L8: Supply Chain<br>
+                        L9: MCP Security &nbsp;&bull;&nbsp; L10: Audit<br>
+                        L11: Governance
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <p style="font-size:0.6em; color:#8b949e;">← Outer = stronger isolation, harder to bypass &nbsp;|&nbsp; Inner = application-level, easier to bypass but still valuable → <br>Each outer layer protects against failures in all inner layers. ↓ for summary matrix</p>
         </section>
@@ -313,23 +357,20 @@ docker run -it --rm \
         <section>
           <span class="layer-badge badge-os">LAYER 2</span>
           <h3>Linux Sandbox Architecture</h3>
-          <div class="ascii-diagram" style="font-size:0.55em;">
-┌──────────────────────────────────────────┐
-│ <span class="hl">bubblewrap</span> (namespace isolation)           │
-│  PID, mount, network, user namespaces    │
-│ ┌──────────────────────────────────────┐ │
-│ │ <span class="hl">seccomp</span> (syscall filtering)            │ │
-│ │  BPF programs block dangerous calls  │ │
-│ │  ptrace, mount, reboot → DENIED      │ │
-│ │ ┌──────────────────────────────────┐ │ │
-│ │ │ <span class="hl">Landlock</span> (filesystem restriction)  │ │ │
-│ │ │  Files outside scope = invisible │ │ │
-│ │ │ ┌──────────────────────────────┐ │ │ │
-│ │ │ │     <span class="hl">AI Agent Process</span>         │ │ │ │
-│ │ │ └──────────────────────────────┘ │ │ │
-│ │ └──────────────────────────────────┘ │ │
-│ └──────────────────────────────────────┘ │
-└──────────────────────────────────────────┘
+          <div class="sandbox-layer sl-bwrap">
+            <div class="sl-title">bubblewrap — namespace isolation</div>
+            <div class="sl-detail">PID, mount, network, user namespaces</div>
+            <div class="sandbox-layer sl-seccomp" style="margin-top:0.4em;">
+              <div class="sl-title">seccomp — syscall filtering</div>
+              <div class="sl-detail">BPF programs block dangerous calls: ptrace, mount, reboot → DENIED</div>
+              <div class="sandbox-layer sl-landlock" style="margin-top:0.4em;">
+                <div class="sl-title">Landlock — filesystem restriction</div>
+                <div class="sl-detail">Files outside scope = completely invisible</div>
+                <div class="sandbox-layer sl-agent" style="margin-top:0.4em;">
+                  <div class="sl-title">AI Agent Process</div>
+                </div>
+              </div>
+            </div>
           </div>
           <p style="font-size:0.65em; margin-top:0.5em;">Reference: <a href="https://github.com/anthropic-experimental/sandbox-runtime" style="color:#58a6ff;">anthropic-experimental/sandbox-runtime</a></p>
         </section>
@@ -382,14 +423,23 @@ docker run -it --rm \
         <section>
           <span class="layer-badge badge-net">LAYER 3</span>
           <h3>Transparent Proxy Architecture</h3>
-          <div class="ascii-diagram" style="font-size:0.6em;">
-AI Agent → [<span class="hl">No direct internet</span>] → Transparent Proxy → Internet
-                                       │
-                                       ├── Allowlist check
-                                       ├── DLP scanning
-                                       ├── SSRF detection
-                                       ├── Request logging
-                                       └── Rate limiting
+          <div class="flow-diagram">
+            <div class="flow-node flow-neutral">AI Agent</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node flow-blocked">No Direct<br>Internet</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node flow-proxy">Transparent Proxy</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node flow-neutral">Internet</div>
+          </div>
+          <div style="display:flex; justify-content:center; margin-top:0.6em;">
+            <div class="flow-checks">
+              <span>Allowlist check</span>
+              <span>DLP scanning</span>
+              <span>SSRF detection</span>
+              <span>Request logging</span>
+              <span>Rate limiting</span>
+            </div>
           </div>
           <div class="good-box" style="margin-top:1em;">
             <strong>Key insight from Pipelock:</strong> DLP scanning runs <em>before</em> DNS resolution — catches sensitive data even if the destination resolves to an internal IP.
@@ -502,17 +552,17 @@ node_modules/
           <span class="layer-badge badge-secret">LAYER 5</span>
           <h2>Secrets &amp; Credential Management</h2>
           <p style="font-size:0.8em;">Assume any secret accessible to the agent process <strong>WILL</strong> be read. Don't inherit the full host environment.</p>
-          <div class="ascii-diagram" style="font-size:0.55em; margin-top:0.5em;">
-YOUR SHELL ENVIRONMENT (what the agent inherits by default)
-├── AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
-├── GITHUB_TOKEN
-├── OPENAI_API_KEY / ANTHROPIC_API_KEY
-├── DATABASE_URL (with embedded credentials)
-├── ~/.ssh/id_rsa (SSH private key)
-├── ~/.aws/credentials
-├── ~/.kube/config
-├── ~/.npmrc (with auth tokens)
-└── ... <span class="hl">every other credential you have</span>
+          <div class="env-tree" style="margin-top:0.5em;">
+            <div class="env-root">YOUR SHELL ENVIRONMENT — inherited by the agent</div>
+            <div class="env-item"><span class="env-icon">🔑</span> <span class="env-key">AWS_ACCESS_KEY_ID / SECRET_ACCESS_KEY</span></div>
+            <div class="env-item"><span class="env-icon">🔑</span> <span class="env-key">GITHUB_TOKEN</span></div>
+            <div class="env-item"><span class="env-icon">🔑</span> <span class="env-key">OPENAI_API_KEY / ANTHROPIC_API_KEY</span></div>
+            <div class="env-item"><span class="env-icon">🔑</span> <span class="env-key">DATABASE_URL</span> <span class="env-desc">with embedded credentials</span></div>
+            <div class="env-item"><span class="env-icon">📄</span> <span class="env-key">~/.ssh/id_rsa</span> <span class="env-desc">SSH private key</span></div>
+            <div class="env-item"><span class="env-icon">📄</span> <span class="env-key">~/.aws/credentials</span></div>
+            <div class="env-item"><span class="env-icon">📄</span> <span class="env-key">~/.kube/config</span></div>
+            <div class="env-item"><span class="env-icon">📄</span> <span class="env-key">~/.npmrc</span> <span class="env-desc">with auth tokens</span></div>
+            <div class="env-item" style="border-left-color:transparent;"><span class="env-icon">⚠️</span> <span style="color:#ff7b72; font-weight:600;">... every other credential you have</span></div>
           </div>
           <div class="warn-box" style="margin-top:0.5em;"><strong>The agent doesn't need most of these. But by default, it has access to all of them.</strong></div>
         </section>
