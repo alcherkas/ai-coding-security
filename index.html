@@ -21,19 +21,35 @@
     }
 
     .reveal { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .reveal-viewport, .reveal .backgrounds { background: radial-gradient(ellipse at 20% 30%, #0d1b2e 0%, #090e17 45%, #0a0d14 100%); }
+
     .reveal h1, .reveal h2, .reveal h3 { text-transform: none; font-weight: 700; letter-spacing: -0.02em; }
-    .reveal h1 { color: #58a6ff; }
-    .reveal h2 { color: #79c0ff; }
-    .reveal h3 { color: #a5d6ff; }
+
+    /* Gradient headings — Neon Dusk */
+    .reveal h1 {
+      background: linear-gradient(120deg, #f783ac 0%, #cc5de8 50%, #748ffc 100%);
+      -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;
+      color: transparent !important;
+    }
+    .reveal h2 {
+      background: linear-gradient(120deg, #f783ac 0%, #cc5de8 50%, #748ffc 100%);
+      -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;
+      color: transparent !important;
+    }
+    .reveal h3 {
+      background: linear-gradient(120deg, #e599f7 0%, #9775fa 100%);
+      -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important;
+      color: transparent !important;
+    }
 
     .reveal .slides section { text-align: left; }
     .reveal .slides section.center-slide { text-align: center; }
 
-    .stat-box { background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 0 4px 4px 0; }
-    .stat-number { color: #ff7b72; font-weight: 700; font-size: 1.1em; }
-    .warn-box { background: rgba(255, 123, 114, 0.1); border-left: 4px solid #ff7b72; padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 0 4px 4px 0; }
-    .good-box { background: rgba(63, 185, 80, 0.1); border-left: 4px solid #3fb950; padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 0 4px 4px 0; }
-    .info-box { background: rgba(136, 132, 216, 0.1); border-left: 4px solid #8884d8; padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 0 4px 4px 0; }
+    .stat-box { background: linear-gradient(145deg, rgba(88,166,255,0.16) 0%, rgba(26,188,156,0.07) 55%, transparent 100%); border: 1px solid rgba(88,166,255,0.18); padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 8px; }
+    .stat-number { font-weight: 700; font-size: 1.1em; background: linear-gradient(135deg, #ff7b72 30%, #ffa657 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .warn-box { background: linear-gradient(145deg, rgba(255,123,114,0.16) 0%, rgba(255,166,87,0.07) 55%, transparent 100%); border: 1px solid rgba(255,123,114,0.2); padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 8px; }
+    .good-box { background: linear-gradient(145deg, rgba(63,185,80,0.16) 0%, rgba(88,166,255,0.06) 55%, transparent 100%); border: 1px solid rgba(63,185,80,0.2); padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 8px; }
+    .info-box { background: linear-gradient(145deg, rgba(210,168,255,0.16) 0%, rgba(255,123,114,0.06) 55%, transparent 100%); border: 1px solid rgba(210,168,255,0.18); padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 8px; }
 
     .reveal table {
       font-size: 0.63em;
@@ -103,17 +119,17 @@
     .reveal ul ul, .reveal ol ol { font-size: 0.95em; margin-top: 0.2em; }
 
     .layer-badge { display: inline-block; padding: 0.15em 0.6em; border-radius: 4px; font-weight: 700; font-size: 0.7em; margin-bottom: 0.3em; }
-    .badge-infra { background: #1a1a2e; border: 1px solid #58a6ff; }
-    .badge-os { background: #16213e; border: 1px solid #58a6ff; }
-    .badge-net { background: #0f3460; border: 1px solid #58a6ff; }
-    .badge-fs { background: #533483; border: 1px solid #9b59b6; }
-    .badge-secret { background: #4a1942; border: 1px solid #e94560; }
-    .badge-human { background: #3d2e00; border: 1px solid #f39c12; }
-    .badge-prompt { background: #0d3320; border: 1px solid #2ecc71; }
-    .badge-supply { background: #0a2744; border: 1px solid #3498db; }
-    .badge-mcp { background: #2d1b4e; border: 1px solid #9b59b6; }
-    .badge-audit { background: #0a3332; border: 1px solid #1abc9c; }
-    .badge-gov { background: #2c2c2c; border: 1px solid #ecf0f1; }
+    .badge-infra  { background: linear-gradient(135deg, rgba(88,166,255,0.28) 0%, rgba(26,188,156,0.12) 100%); border: 1px solid rgba(88,166,255,0.45); }
+    .badge-os     { background: linear-gradient(135deg, rgba(88,166,255,0.22) 0%, rgba(121,192,255,0.10) 100%); border: 1px solid rgba(88,166,255,0.38); }
+    .badge-net    { background: linear-gradient(135deg, rgba(52,152,219,0.28) 0%, rgba(88,166,255,0.12) 100%); border: 1px solid rgba(52,152,219,0.45); }
+    .badge-fs     { background: linear-gradient(135deg, rgba(155,89,182,0.28) 0%, rgba(210,168,255,0.12) 100%); border: 1px solid rgba(155,89,182,0.45); }
+    .badge-secret { background: linear-gradient(135deg, rgba(233,69,96,0.28) 0%, rgba(255,123,114,0.12) 100%); border: 1px solid rgba(233,69,96,0.45); }
+    .badge-human  { background: linear-gradient(135deg, rgba(243,156,18,0.28) 0%, rgba(255,166,87,0.12) 100%); border: 1px solid rgba(243,156,18,0.45); }
+    .badge-prompt { background: linear-gradient(135deg, rgba(46,204,113,0.28) 0%, rgba(63,185,80,0.12) 100%); border: 1px solid rgba(46,204,113,0.45); }
+    .badge-supply { background: linear-gradient(135deg, rgba(52,152,219,0.28) 0%, rgba(26,188,156,0.12) 100%); border: 1px solid rgba(52,152,219,0.45); }
+    .badge-mcp    { background: linear-gradient(135deg, rgba(155,89,182,0.28) 0%, rgba(210,168,255,0.12) 100%); border: 1px solid rgba(155,89,182,0.45); }
+    .badge-audit  { background: linear-gradient(135deg, rgba(26,188,156,0.28) 0%, rgba(88,166,255,0.12) 100%); border: 1px solid rgba(26,188,156,0.45); }
+    .badge-gov    { background: linear-gradient(135deg, rgba(236,240,241,0.14) 0%, rgba(189,195,199,0.07) 100%); border: 1px solid rgba(236,240,241,0.28); }
 
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; font-size: 0.85em; }
     .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8em; font-size: 0.75em; }
@@ -128,44 +144,44 @@
     .slide-nav-hint { position: fixed; bottom: 20px; right: 30px; font-size: 0.5em; color: rgba(255,255,255,0.3); }
 
     /* Nested layer rings diagram */
-    .ring { border: 2px solid; border-radius: 12px; padding: 0.35em 0.5em; text-align: center; }
+    .ring { border: 1px solid; border-radius: 12px; padding: 0.35em 0.5em; text-align: center; }
     .ring .ring-label { font-size: 0.55em; font-weight: 600; margin-bottom: 0.2em; letter-spacing: 0.03em; }
-    .ring-1 { border-color: #58a6ff; background: rgba(88,166,255,0.06); }
-    .ring-1 .ring-label { color: #58a6ff; }
-    .ring-2 { border-color: #79c0ff; background: rgba(121,192,255,0.05); }
-    .ring-2 .ring-label { color: #79c0ff; }
-    .ring-3 { border-color: #3fb950; background: rgba(63,185,80,0.05); }
-    .ring-3 .ring-label { color: #3fb950; }
-    .ring-4 { border-color: #d2a8ff; background: rgba(210,168,255,0.05); }
+    .ring-1 { border-color: rgba(88,166,255,0.45); background: linear-gradient(145deg, rgba(88,166,255,0.1) 0%, rgba(26,188,156,0.04) 100%); }
+    .ring-1 .ring-label { color: #79c0ff; }
+    .ring-2 { border-color: rgba(121,192,255,0.4); background: linear-gradient(145deg, rgba(121,192,255,0.09) 0%, rgba(88,166,255,0.04) 100%); }
+    .ring-2 .ring-label { color: #a5d6ff; }
+    .ring-3 { border-color: rgba(63,185,80,0.45); background: linear-gradient(145deg, rgba(63,185,80,0.1) 0%, rgba(88,166,255,0.03) 100%); }
+    .ring-3 .ring-label { color: #56d364; }
+    .ring-4 { border-color: rgba(210,168,255,0.4); background: linear-gradient(145deg, rgba(210,168,255,0.1) 0%, rgba(255,123,114,0.03) 100%); }
     .ring-4 .ring-label { color: #d2a8ff; }
-    .ring-5 { border-color: #ff7b72; background: rgba(255,123,114,0.05); }
-    .ring-5 .ring-label { color: #ff7b72; }
-    .ring-6 { border-color: #f39c12; background: rgba(243,156,18,0.05); }
-    .ring-6 .ring-label { color: #f39c12; }
-    .ring-core { border: 2px solid #8b949e; border-radius: 10px; padding: 0.4em; background: rgba(139,148,158,0.06); font-size: 0.5em; color: #c9d1d9; line-height: 1.6; }
+    .ring-5 { border-color: rgba(255,123,114,0.4); background: linear-gradient(145deg, rgba(255,123,114,0.1) 0%, rgba(255,166,87,0.04) 100%); }
+    .ring-5 .ring-label { color: #ff9490; }
+    .ring-6 { border-color: rgba(243,156,18,0.4); background: linear-gradient(145deg, rgba(243,156,18,0.1) 0%, rgba(255,123,114,0.04) 100%); }
+    .ring-6 .ring-label { color: #f0b429; }
+    .ring-core { border: 1px solid rgba(139,148,158,0.3); border-radius: 10px; padding: 0.4em; background: linear-gradient(145deg, rgba(139,148,158,0.1) 0%, rgba(88,166,255,0.04) 100%); font-size: 0.5em; color: #c9d1d9; line-height: 1.6; }
 
     /* Sandbox layers diagram */
     .sandbox-layer { border-radius: 10px; padding: 0.5em 0.7em; margin-bottom: 0; text-align: left; }
     .sandbox-layer .sl-title { font-weight: 700; font-size: 0.8em; margin-bottom: 0.15em; }
     .sandbox-layer .sl-detail { font-size: 0.6em; color: #8b949e; }
-    .sl-bwrap { border: 2px solid #58a6ff; background: rgba(88,166,255,0.08); }
-    .sl-bwrap .sl-title { color: #58a6ff; }
-    .sl-seccomp { border: 2px solid #f39c12; background: rgba(243,156,18,0.08); }
-    .sl-seccomp .sl-title { color: #f39c12; }
-    .sl-landlock { border: 2px solid #3fb950; background: rgba(63,185,80,0.08); }
-    .sl-landlock .sl-title { color: #3fb950; }
-    .sl-agent { border: 2px solid #d2a8ff; background: rgba(210,168,255,0.1); text-align: center; }
+    .sl-bwrap    { border: 1px solid rgba(88,166,255,0.3); background: linear-gradient(145deg, rgba(88,166,255,0.14) 0%, rgba(26,188,156,0.06) 100%); }
+    .sl-bwrap .sl-title { color: #79c0ff; }
+    .sl-seccomp  { border: 1px solid rgba(243,156,18,0.3); background: linear-gradient(145deg, rgba(243,156,18,0.14) 0%, rgba(255,166,87,0.06) 100%); }
+    .sl-seccomp .sl-title { color: #f0b429; }
+    .sl-landlock { border: 1px solid rgba(63,185,80,0.3); background: linear-gradient(145deg, rgba(63,185,80,0.14) 0%, rgba(88,166,255,0.06) 100%); }
+    .sl-landlock .sl-title { color: #56d364; }
+    .sl-agent    { border: 1px solid rgba(210,168,255,0.3); background: linear-gradient(145deg, rgba(210,168,255,0.14) 0%, rgba(255,123,114,0.05) 100%); text-align: center; }
     .sl-agent .sl-title { color: #d2a8ff; }
 
     /* Flow diagram */
     .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: nowrap; }
     .flow-node { border-radius: 8px; padding: 0.5em 0.7em; text-align: center; font-size: 0.65em; font-weight: 600; min-width: 100px; }
     .flow-arrow { font-size: 1.2em; color: #484f58; padding: 0 0.2em; }
-    .flow-blocked { border: 2px solid #ff7b72; background: rgba(255,123,114,0.1); color: #ff7b72; }
-    .flow-proxy { border: 2px solid #3fb950; background: rgba(63,185,80,0.1); color: #3fb950; min-width: 160px; }
-    .flow-neutral { border: 2px solid #58a6ff; background: rgba(88,166,255,0.1); color: #58a6ff; }
+    .flow-blocked { border: 1px solid rgba(255,123,114,0.35); background: linear-gradient(145deg, rgba(255,123,114,0.16) 0%, rgba(255,166,87,0.07) 100%); color: #ff9490; }
+    .flow-proxy   { border: 1px solid rgba(63,185,80,0.35); background: linear-gradient(145deg, rgba(63,185,80,0.16) 0%, rgba(88,166,255,0.07) 100%); color: #56d364; min-width: 160px; }
+    .flow-neutral { border: 1px solid rgba(88,166,255,0.35); background: linear-gradient(145deg, rgba(88,166,255,0.16) 0%, rgba(26,188,156,0.07) 100%); color: #79c0ff; }
     .flow-checks { display: flex; flex-direction: column; gap: 0.25em; font-size: 0.6em; text-align: left; color: #c9d1d9; margin-top: 0.5em; }
-    .flow-checks span { padding: 0.2em 0.5em; background: rgba(63,185,80,0.08); border-left: 3px solid #3fb950; border-radius: 0 4px 4px 0; }
+    .flow-checks span { padding: 0.2em 0.5em; background: linear-gradient(145deg, rgba(63,185,80,0.12) 0%, rgba(88,166,255,0.05) 100%); border: 1px solid rgba(63,185,80,0.2); border-radius: 4px; }
 
     /* Env tree diagram */
     .env-tree { text-align: left; font-size: 0.7em; }
@@ -175,6 +191,51 @@
     .env-tree .env-icon { font-size: 0.9em; width: 1.2em; text-align: center; }
     .env-tree .env-key { color: #ffa657; font-family: 'Courier New', monospace; font-size: 0.9em; }
     .env-tree .env-desc { color: #8b949e; font-size: 0.85em; }
+
+    /* ===== STAT CARD VARIANTS (Options A & B) ===== */
+
+    /* Gradient card backgrounds */
+    .sc-red-org  { background: linear-gradient(145deg, rgba(255,123,114,0.30) 0%, rgba(255,166,87,0.12) 55%, transparent 100%); }
+    .sc-org-yel  { background: linear-gradient(145deg, rgba(255,166,87,0.30) 0%, rgba(227,179,65,0.12) 55%, transparent 100%); }
+    .sc-pur-pnk  { background: linear-gradient(145deg, rgba(210,168,255,0.30) 0%, rgba(255,123,114,0.10) 55%, transparent 100%); }
+    .sc-red-pur  { background: linear-gradient(145deg, rgba(255,107,107,0.30) 0%, rgba(210,168,255,0.13) 55%, transparent 100%); }
+    .sc-blu-tel  { background: linear-gradient(145deg, rgba(88,166,255,0.30) 0%, rgba(26,188,156,0.12) 55%, transparent 100%); }
+    .sc-grn-blu  { background: linear-gradient(145deg, rgba(63,185,80,0.30) 0%, rgba(88,166,255,0.11) 55%, transparent 100%); }
+
+    /* Gradient number text */
+    .sn-red-org  { background: linear-gradient(135deg, #ff7b72 30%, #ffa657 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sn-org-yel  { background: linear-gradient(135deg, #ffa657 30%, #e3b341 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sn-pur-pnk  { background: linear-gradient(135deg, #d2a8ff 30%, #ff7b72 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sn-red-pur  { background: linear-gradient(135deg, #ff6b6b 30%, #d2a8ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sn-blu-tel  { background: linear-gradient(135deg, #58a6ff 30%, #1abc9c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sn-grn-blu  { background: linear-gradient(135deg, #3fb950 30%, #58a6ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+
+    /* Generic gradient info card — pairs with .sc-* color classes */
+    .info-card { border-radius: 10px; padding: 0.72em 0.88em; border: 1px solid rgba(255,255,255,0.09); font-size: 0.75em; line-height: 1.5; color: #8b949e; }
+    .info-card strong { display: block; font-size: 0.78em; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 0.35em; }
+
+    /* Incident Timeline */
+    .timeline { display: grid; grid-template-columns: 5em 16px 1fr; row-gap: 0; font-size: 0.74em; margin-top: 0.5em; }
+    .tl-date { text-align: right; padding-right: 0.7em; padding-top: 0.2em; font-weight: 700; font-size: 0.88em; line-height: 1.3; white-space: nowrap; }
+    .tl-spine { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 0.24em; }
+    .tl-connector { width: 2px; flex: 1; min-height: 0.6em; }
+    .tl-content { padding: 0 0 0.65em 0.75em; }
+    .tl-title { font-weight: 600; color: #e6edf3; line-height: 1.3; }
+    .tl-impact { font-size: 0.82em; color: #8b949e; margin-top: 0.08em; }
+
+    /* KPI Dashboard Tiles */
+    .stat-kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55em; margin-top: 0.4em; }
+    .stat-kpi-v5 {
+      border-radius: 10px;
+      padding: 0.75em 0.65em 0.65em;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .stat-kpi-v5 .kpi-label { font-size: 0.4em; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.3em; display: block; }
+    .stat-kpi-v5 .sn { display: block; font-size: 2.1em; font-weight: 700; line-height: 1; }
+    .stat-kpi-v5 .sd { display: block; font-size: 0.48em; color: #8b949e; margin-top: 0.45em; line-height: 1.4; }
+
   </style>
 </head>
 <body>
@@ -197,43 +258,101 @@
       <section>
         <section>
           <h2>The Threat in Numbers</h2>
-          <div class="stat-box"><span class="stat-number">41–83%</span> prompt injection success rates across major platforms</div>
-          <div class="stat-box"><span class="stat-number">30+</span> CVEs disclosed across Claude Code, Copilot, Cursor (2025–2026)</div>
-          <div class="stat-box"><span class="stat-number">36%</span> of AI agent skills contain security flaws (Snyk ToxicSkills)</div>
-          <div class="stat-box"><span class="stat-number">72%+</span> tool poisoning attack success rate on MCP servers</div>
-          <div class="stat-box"><span class="stat-number">20%</span> of AI-generated code references hallucinated packages</div>
-          <div class="stat-box"><span class="stat-number">~30</span> entities targeted by first AI-orchestrated espionage campaign (GTG-1002)</div>
+          <div class="stat-kpi-grid">
+            <div class="stat-kpi-v5 sc-red-org"><span class="kpi-label sn-red-org">Injection Rate</span><span class="sn sn-red-org">41–83%</span><span class="sd">prompt injection success rates across major platforms</span></div>
+            <div class="stat-kpi-v5 sc-org-yel"><span class="kpi-label sn-org-yel">Disclosed CVEs</span><span class="sn sn-org-yel">30+</span><span class="sd">Claude Code, Copilot, Cursor (2025–2026)</span></div>
+            <div class="stat-kpi-v5 sc-pur-pnk"><span class="kpi-label sn-pur-pnk">Skill Flaws</span><span class="sn sn-pur-pnk">36%</span><span class="sd">AI agent skills with security flaws (Snyk ToxicSkills)</span></div>
+            <div class="stat-kpi-v5 sc-red-pur"><span class="kpi-label sn-red-pur">Tool Poisoning</span><span class="sn sn-red-pur">72%+</span><span class="sd">attack success rate on MCP servers</span></div>
+            <div class="stat-kpi-v5 sc-blu-tel"><span class="kpi-label sn-blu-tel">Hallucinated Deps</span><span class="sn sn-blu-tel">20%</span><span class="sd">AI-generated code references hallucinated packages</span></div>
+            <div class="stat-kpi-v5 sc-grn-blu"><span class="kpi-label sn-grn-blu">Espionage Targets</span><span class="sn sn-grn-blu">~30</span><span class="sd">entities targeted by first AI-orchestrated campaign (GTG-1002)</span></div>
+          </div>
           <p style="font-size:0.55em; color:#8b949e; margin-top:0.8em;">Every stat above comes from published research or disclosed incidents within the last 12 months. ↓ for details</p>
         </section>
 
         <section>
           <h3>What Makes AI Agents Different</h3>
-          <div class="two-col">
-            <div>
-              <div class="warn-box"><strong>Permission Paradox</strong><br>Agents need broad access to be useful — read/write files, execute commands, access network</div>
-              <div class="warn-box"><strong>Inherited Trust</strong><br>Agents run as the developer with their SSH keys, API tokens, and cloud credentials</div>
-            </div>
-            <div>
-              <div class="warn-box"><strong>Instruction–Data Confusion</strong><br>LLMs cannot reliably distinguish instructions from data — root cause of prompt injection</div>
-              <div class="warn-box"><strong>Speed &amp; Scale</strong><br>Unlike humans, agents execute thousands of ops/sec — amplifying any compromise</div>
-            </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6em;margin-top:0.5em;">
+            <div class="info-card sc-red-org"><strong class="sn-red-org">Permission Paradox</strong>Agents need broad access to be useful — read/write files, execute commands, access network</div>
+            <div class="info-card sc-red-pur"><strong class="sn-red-pur">Inherited Trust</strong>Agents run as the developer with their SSH keys, API tokens, and cloud credentials</div>
+            <div class="info-card sc-org-yel"><strong class="sn-org-yel">Instruction–Data Confusion</strong>LLMs cannot reliably distinguish instructions from data — root cause of prompt injection</div>
+            <div class="info-card sc-pur-pnk"><strong class="sn-pur-pnk">Speed &amp; Scale</strong>Unlike humans, agents execute thousands of ops/sec — amplifying any compromise</div>
           </div>
         </section>
 
         <section>
           <h3>Incident Timeline</h3>
-          <table>
-            <thead><tr><th>Date</th><th>Incident</th><th>Impact</th></tr></thead>
-            <tbody>
-              <tr><td>May 2025</td><td>GitHub MCP vulnerability — malicious commands in Issues</td><td>Source code &amp; key exfiltration</td></tr>
-              <tr><td>Sep 2025</td><td>GTG-1002 AI-orchestrated espionage (Anthropic)</td><td>~30 entities, 80–90% automated</td></tr>
-              <tr><td>Oct 2025</td><td>Postmark-MCP supply chain attack</td><td>~300 orgs compromised</td></tr>
-              <tr><td>Oct 2025</td><td>CVE-2025-59536: Claude Code RCE via project files</td><td>Remote code execution</td></tr>
-              <tr><td>Nov 2025</td><td>GitHub Copilot CVEs (path traversal, output validation)</td><td>Unauthorized file access</td></tr>
-              <tr><td>Feb 2026</td><td>Agents of Chaos — 11 agent failure modes</td><td>Academic proof of systemic risks</td></tr>
-              <tr><td>Feb 2026</td><td>Snyk ToxicSkills — 36% of skills have flaws</td><td>76 confirmed malicious payloads</td></tr>
-            </tbody>
-          </table>
+          <div class="timeline">
+
+            <div class="tl-date" style="color:#ff9490">May 2025</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#ff7b72;box-shadow:0 0 8px rgba(255,123,114,0.8)"></div>
+              <div class="tl-connector" style="background:linear-gradient(to bottom,rgba(255,123,114,0.4),rgba(255,166,87,0.25))"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">GitHub MCP vulnerability — malicious commands in Issues</div>
+              <div class="tl-impact">Source code &amp; key exfiltration</div>
+            </div>
+
+            <div class="tl-date" style="color:#ffb86c">Sep 2025</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#ffa657;box-shadow:0 0 8px rgba(255,166,87,0.8)"></div>
+              <div class="tl-connector" style="background:linear-gradient(to bottom,rgba(255,166,87,0.4),rgba(210,168,255,0.25))"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">GTG-1002 AI-orchestrated espionage (Anthropic)</div>
+              <div class="tl-impact">~30 entities, 80–90% automated</div>
+            </div>
+
+            <div class="tl-date" style="color:#ddb8ff">Oct 2025</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#d2a8ff;box-shadow:0 0 8px rgba(210,168,255,0.8)"></div>
+              <div class="tl-connector" style="background:linear-gradient(to bottom,rgba(210,168,255,0.4),rgba(255,107,107,0.25))"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Postmark-MCP supply chain attack</div>
+              <div class="tl-impact">~300 orgs compromised</div>
+            </div>
+
+            <div class="tl-date" style="color:#ff8888">Oct 2025</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#ff6b6b;box-shadow:0 0 8px rgba(255,107,107,0.8)"></div>
+              <div class="tl-connector" style="background:linear-gradient(to bottom,rgba(255,107,107,0.4),rgba(88,166,255,0.25))"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">CVE-2025-59536: Claude Code RCE via project files</div>
+              <div class="tl-impact">Remote code execution</div>
+            </div>
+
+            <div class="tl-date" style="color:#79c0ff">Nov 2025</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#58a6ff;box-shadow:0 0 8px rgba(88,166,255,0.8)"></div>
+              <div class="tl-connector" style="background:linear-gradient(to bottom,rgba(88,166,255,0.4),rgba(63,185,80,0.25))"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">GitHub Copilot CVEs (path traversal, output validation)</div>
+              <div class="tl-impact">Unauthorized file access</div>
+            </div>
+
+            <div class="tl-date" style="color:#56d364">Feb 2026</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#3fb950;box-shadow:0 0 8px rgba(63,185,80,0.8)"></div>
+              <div class="tl-connector" style="background:linear-gradient(to bottom,rgba(63,185,80,0.4),rgba(26,188,156,0.25))"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-title">Agents of Chaos — 11 agent failure modes</div>
+              <div class="tl-impact">Academic proof of systemic risks</div>
+            </div>
+
+            <div class="tl-date" style="color:#2ee8c8">Feb 2026</div>
+            <div class="tl-spine">
+              <div class="tl-dot" style="background:#1abc9c;box-shadow:0 0 8px rgba(26,188,156,0.8)"></div>
+            </div>
+            <div class="tl-content" style="padding-bottom:0">
+              <div class="tl-title">Snyk ToxicSkills — 36% of skills have flaws</div>
+              <div class="tl-impact">76 confirmed malicious payloads</div>
+            </div>
+
+          </div>
         </section>
 
         <section>
@@ -322,18 +441,9 @@
           <h2>Infrastructure Isolation</h2>
           <p style="font-size:0.8em;">Hardware-enforced boundaries between the AI agent and the host system. Even a fully compromised agent cannot escape.</p>
           <div class="three-col" style="margin-top:1em;">
-            <div class="stat-box">
-              <strong>Cloud Dev Envs</strong><br>
-              GitHub Codespaces (VM-based), Gitpod (container-based)
-            </div>
-            <div class="stat-box">
-              <strong>MicroVMs</strong><br>
-              Firecracker (&lt;125ms boot), Kata Containers, E2B (&lt;200ms)
-            </div>
-            <div class="stat-box">
-              <strong>Containers</strong><br>
-              Docker sandboxes, DevContainers. Shared kernel = weaker than VMs
-            </div>
+            <div class="info-card sc-blu-tel"><strong class="sn-blu-tel">Cloud Dev Envs</strong>GitHub Codespaces (VM-based), Gitpod (container-based)</div>
+            <div class="info-card sc-grn-blu"><strong class="sn-grn-blu">MicroVMs</strong>Firecracker (&lt;125ms boot), Kata Containers, E2B (&lt;200ms)</div>
+            <div class="info-card sc-pur-pnk"><strong class="sn-pur-pnk">Containers</strong>Docker sandboxes, DevContainers. Shared kernel = weaker than VMs</div>
           </div>
           <div class="good-box" style="margin-top:0.8em;">
             <strong>Key principle:</strong> Agent runs on ephemeral cloud infrastructure, never on the developer's machine.
@@ -401,18 +511,8 @@ docker run -it --rm \
           <h2>OS-Level Sandboxing</h2>
           <p style="font-size:0.8em;">Kernel-enforced restrictions on syscalls, file access, and resources. The primary security mechanism used by Claude Code and Cursor today.</p>
           <div class="two-col" style="margin-top:0.8em;">
-            <div class="stat-box">
-              <strong>macOS: Seatbelt</strong><br>
-              sandbox-exec with SBPL profiles<br>
-              Deny-by-default, fine-grained file control<br>
-              <span style="color:#8b949e; font-size:0.85em;">Used by: Claude Code, Cursor</span>
-            </div>
-            <div class="stat-box">
-              <strong>Linux: Triple Layer</strong><br>
-              bubblewrap + seccomp + Landlock<br>
-              Namespace isolation + syscall filtering + fs restriction<br>
-              <span style="color:#8b949e; font-size:0.85em;">Used by: Claude Code</span>
-            </div>
+            <div class="info-card sc-blu-tel"><strong class="sn-blu-tel">macOS: Seatbelt</strong>sandbox-exec with SBPL profiles<br>Deny-by-default, fine-grained file control<br><span style="color:#8b949e; font-size:0.85em;">Used by: Claude Code, Cursor</span></div>
+            <div class="info-card sc-grn-blu"><strong class="sn-grn-blu">Linux: Triple Layer</strong>bubblewrap + seccomp + Landlock<br>Namespace isolation + syscall filtering + fs restriction<br><span style="color:#8b949e; font-size:0.85em;">Used by: Claude Code</span></div>
           </div>
           <div class="good-box" style="margin-top:0.5em;">Claude Code sandbox reduces permission prompts by <strong>84%</strong> while maintaining security.</div>
         </section>
@@ -471,15 +571,11 @@ docker run -it --rm \
           <span class="layer-badge badge-net">LAYER 3</span>
           <h2>Network Controls</h2>
           <p style="font-size:0.8em;">Even if an agent is compromised, network controls prevent data exfiltration and C2 communication. Without network access, stolen data has nowhere to go.</p>
-          <div class="two-col" style="margin-top:0.8em;">
-            <div>
-              <div class="stat-box"><strong>Egress Filtering</strong><br>Block all outbound by default, allowlist only required endpoints</div>
-              <div class="stat-box"><strong>Agent Proxy</strong><br>Transparent proxy mediating all requests with DLP scanning</div>
-            </div>
-            <div>
-              <div class="stat-box"><strong>DNS Controls</strong><br>Block unauthorized domain resolution, prevent DNS tunneling</div>
-              <div class="stat-box"><strong>Pipelock</strong><br>Purpose-built agent firewall with SSRF protection &amp; prompt injection blocking</div>
-            </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6em;margin-top:0.8em;">
+            <div class="info-card sc-blu-tel"><strong class="sn-blu-tel">Egress Filtering</strong>Block all outbound by default, allowlist only required endpoints</div>
+            <div class="info-card sc-grn-blu"><strong class="sn-grn-blu">Agent Proxy</strong>Transparent proxy mediating all requests with DLP scanning</div>
+            <div class="info-card sc-org-yel"><strong class="sn-org-yel">DNS Controls</strong>Block unauthorized domain resolution, prevent DNS tunneling</div>
+            <div class="info-card sc-red-org"><strong class="sn-red-org">Pipelock</strong>Purpose-built agent firewall with SSRF protection &amp; prompt injection blocking</div>
           </div>
         </section>
 
@@ -772,18 +868,9 @@ def connect():
           <span class="layer-badge badge-prompt">LAYER 7</span>
           <h3>Defense Layers</h3>
           <div class="three-col">
-            <div class="info-box">
-              <strong>Input Filtering</strong><br>
-              Strip HTML comments, invisible Unicode, metadata from ingested content
-            </div>
-            <div class="info-box">
-              <strong>Output Validation</strong><br>
-              Check commands against deny list, validate file paths, detect credential strings
-            </div>
-            <div class="info-box">
-              <strong>Confirmation Gates</strong><br>
-              Human approval before file edits, commands, network requests, git operations
-            </div>
+            <div class="info-card sc-blu-tel"><strong class="sn-blu-tel">Input Filtering</strong>Strip HTML comments, invisible Unicode, metadata from ingested content</div>
+            <div class="info-card sc-pur-pnk"><strong class="sn-pur-pnk">Output Validation</strong>Check commands against deny list, validate file paths, detect credential strings</div>
+            <div class="info-card sc-grn-blu"><strong class="sn-grn-blu">Confirmation Gates</strong>Human approval before file edits, commands, network requests, git operations</div>
           </div>
           <div class="good-box" style="margin-top:1em;">
             <strong>Defense-in-depth matters here:</strong> Even if injection succeeds (Layer 7 fails), sandbox (Layer 2) limits what the agent can do, network controls (Layer 3) prevent exfiltration, and human approval (Layer 6) can catch the attack.
@@ -798,30 +885,11 @@ def connect():
           <span class="layer-badge badge-supply">LAYER 8</span>
           <h2>Supply Chain Security</h2>
           <p style="font-size:0.8em;">AI-generated code introduces unique supply chain risks.</p>
-          <div class="two-col" style="margin-top:0.8em;">
-            <div>
-              <div class="warn-box">
-                <strong>Slopsquatting</strong><br>
-                ~20% of AI code references hallucinated packages. Attackers register these names on npm/PyPI.
-              </div>
-              <div class="warn-box">
-                <strong>ToxicSkills (Snyk, Feb 2026)</strong><br>
-                3,984 skills audited:<br>
-                &bull; 36.82% have security flaws<br>
-                &bull; 76 confirmed malicious payloads<br>
-                &bull; 100% of malicious skills combine code + prompt injection
-              </div>
-            </div>
-            <div>
-              <div class="warn-box">
-                <strong>Vulnerable Code Generation</strong><br>
-                Hardcoded credentials, SQL injection, command injection in AI-generated code
-              </div>
-              <div class="warn-box">
-                <strong>npm Ecosystem Attacks (2025)</strong><br>
-                526+ compromised packages affecting thousands of developers
-              </div>
-            </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6em;margin-top:0.8em;">
+            <div class="info-card sc-red-org"><strong class="sn-red-org">Slopsquatting</strong>~20% of AI code references hallucinated packages. Attackers register these names on npm/PyPI.</div>
+            <div class="info-card sc-red-pur"><strong class="sn-red-pur">ToxicSkills (Snyk, Feb 2026)</strong>3,984 skills audited: 36.82% have security flaws &bull; 76 confirmed malicious payloads &bull; 100% of malicious skills combine code + prompt injection</div>
+            <div class="info-card sc-org-yel"><strong class="sn-org-yel">Vulnerable Code Generation</strong>Hardcoded credentials, SQL injection, command injection in AI-generated code</div>
+            <div class="info-card sc-pur-pnk"><strong class="sn-pur-pnk">npm Ecosystem Attacks (2025)</strong>526+ compromised packages affecting thousands of developers</div>
           </div>
         </section>
 
@@ -873,8 +941,8 @@ repos:
           <div class="stat-box" style="margin-top:0.8em;"><span class="stat-number">72%+</span> tool poisoning attack success rate (MCPTox benchmark: 45 servers, 353 tools)</div>
           <div class="stat-box"><span class="stat-number">&lt;3%</span> safety alignment refusal rate — models fail to detect tool poisoning</div>
           <div class="two-col" style="margin-top:0.8em;">
-            <div class="good-box"><strong>Claude Code:</strong> MCP servers sandboxed by default</div>
-            <div class="warn-box"><strong>Cursor:</strong> MCP servers NOT sandboxed by default</div>
+            <div class="info-card sc-grn-blu"><strong class="sn-grn-blu">Claude Code</strong>MCP servers sandboxed by default</div>
+            <div class="info-card sc-red-org"><strong class="sn-red-org">Cursor</strong>MCP servers NOT sandboxed by default</div>
           </div>
         </section>
 
@@ -973,14 +1041,14 @@ repos:
           <h2>Governance &amp; Frameworks</h2>
           <p style="font-size:0.8em;">Organizational structure that ensures technical controls are deployed, maintained, and enforced.</p>
           <div class="three-col" style="margin-top:0.8em;">
-            <div class="stat-box"><strong>OWASP</strong><br>AI Agent Security Cheat Sheet + Top 10 for Agentic Apps 2026</div>
-            <div class="stat-box"><strong>OpenSSF</strong><br>Security-Focused Guide for AI Code Assistants</div>
-            <div class="stat-box"><strong>Google SAIF</strong><br>Secure AI Framework with agent-specific guidance</div>
+            <div class="info-card sc-blu-tel"><strong class="sn-blu-tel">OWASP</strong>AI Agent Security Cheat Sheet + Top 10 for Agentic Apps 2026</div>
+            <div class="info-card sc-grn-blu"><strong class="sn-grn-blu">OpenSSF</strong>Security-Focused Guide for AI Code Assistants</div>
+            <div class="info-card sc-org-yel"><strong class="sn-org-yel">Google SAIF</strong>Secure AI Framework with agent-specific guidance</div>
           </div>
           <div class="three-col" style="margin-top:0.5em;">
-            <div class="stat-box"><strong>NIST</strong><br>AI Agent Standards Initiative (Feb 2026) — identity, authz, architecture</div>
-            <div class="stat-box"><strong>AWS</strong><br>Well-Architected Gen AI Lens — least privilege for agents</div>
-            <div class="stat-box"><strong>Red Hat</strong><br>Defense-in-Depth for AI — layered controls guidance</div>
+            <div class="info-card sc-red-org"><strong class="sn-red-org">NIST</strong>AI Agent Standards Initiative (Feb 2026) — identity, authz, architecture</div>
+            <div class="info-card sc-pur-pnk"><strong class="sn-pur-pnk">AWS</strong>Well-Architected Gen AI Lens — least privilege for agents</div>
+            <div class="info-card sc-red-pur"><strong class="sn-red-pur">Red Hat</strong>Defense-in-Depth for AI — layered controls guidance</div>
           </div>
         </section>
 
