@@ -235,6 +235,7 @@
         </section>
 
         <section>
+          <span class="layer-badge badge-infra">LAYER 1</span>
           <h3>Implementation: Docker Isolation</h3>
           <pre><code class="language-bash" data-trim>
 # Run AI agent in an isolated container
@@ -269,6 +270,7 @@ docker run -it --rm \
         </section>
 
         <section>
+          <span class="layer-badge badge-infra">LAYER 1</span>
           <h3>Cloud Dev Environments Comparison</h3>
           <table>
             <thead><tr><th>Platform</th><th>Isolation</th><th>Startup</th><th>Best For</th></tr></thead>
@@ -309,6 +311,7 @@ docker run -it --rm \
         </section>
 
         <section>
+          <span class="layer-badge badge-os">LAYER 2</span>
           <h3>Linux Sandbox Architecture</h3>
           <div class="ascii-diagram" style="font-size:0.55em;">
 ┌──────────────────────────────────────────┐
@@ -332,6 +335,7 @@ docker run -it --rm \
         </section>
 
         <section>
+          <span class="layer-badge badge-os">LAYER 2</span>
           <h3>macOS Seatbelt Profile (Simplified)</h3>
           <pre><code class="language-scheme" data-trim>
 (version 1)
@@ -376,6 +380,7 @@ docker run -it --rm \
         </section>
 
         <section>
+          <span class="layer-badge badge-net">LAYER 3</span>
           <h3>Transparent Proxy Architecture</h3>
           <div class="ascii-diagram" style="font-size:0.6em;">
 AI Agent → [<span class="hl">No direct internet</span>] → Transparent Proxy → Internet
@@ -396,6 +401,7 @@ docker run --network=none -v /project:/workspace agent-image
         </section>
 
         <section>
+          <span class="layer-badge badge-net">LAYER 3</span>
           <h3>iptables Egress Rules</h3>
           <pre><code class="language-bash" data-trim>
 # Create chain for AI agent traffic
@@ -457,6 +463,7 @@ iptables -A OUTPUT -m owner --uid-owner ai-agent -j AI_AGENT
         </section>
 
         <section>
+          <span class="layer-badge badge-fs">LAYER 4</span>
           <h3>Essential .aiignore</h3>
           <pre><code class="language-gitignore" data-trim>
 # Secrets and credentials
@@ -511,6 +518,7 @@ YOUR SHELL ENVIRONMENT (what the agent inherits by default)
         </section>
 
         <section>
+          <span class="layer-badge badge-secret">LAYER 5</span>
           <h3>Known Bypass Vectors</h3>
           <div class="warn-box"><strong><code>docker compose config</code> bypass:</strong> .env in .aiignore? Agent runs <code>docker compose config</code> → all secrets interpolated and exposed.</div>
           <div class="warn-box"><strong>Cursor SSH key access:</strong> Cursor sandbox allows reading <code>~/.ssh/id_rsa</code> despite restrictions.</div>
@@ -529,6 +537,7 @@ env -i \
         </section>
 
         <section>
+          <span class="layer-badge badge-secret">LAYER 5</span>
           <h3>Short-Lived Credentials</h3>
           <pre><code class="language-bash" data-trim>
 # Generate temporary AWS credentials (1 hour)
@@ -568,6 +577,7 @@ docker run --rm \
         </section>
 
         <section>
+          <span class="layer-badge badge-human">LAYER 6</span>
           <h3>The Anti-Pattern: --dangerously-skip-permissions</h3>
           <div class="warn-box"><strong>This flag disables ALL permission checks.</strong> Its name is intentional.</div>
           <div class="two-col" style="margin-top:0.8em;">
@@ -612,6 +622,7 @@ docker run --rm \
         </section>
 
         <section>
+          <span class="layer-badge badge-prompt">LAYER 7</span>
           <h3>Direct vs. Indirect Injection</h3>
           <div class="two-col">
             <div>
@@ -645,6 +656,7 @@ def connect():
         </section>
 
         <section>
+          <span class="layer-badge badge-prompt">LAYER 7</span>
           <h3>Defense Layers</h3>
           <div class="three-col">
             <div class="info-box">
@@ -701,6 +713,7 @@ def connect():
         </section>
 
         <section>
+          <span class="layer-badge badge-supply">LAYER 8</span>
           <h3>Defenses</h3>
           <div class="two-col">
             <div>
@@ -753,6 +766,7 @@ repos:
         </section>
 
         <section>
+          <span class="layer-badge badge-mcp">LAYER 9</span>
           <h3>Tool Poisoning Attack</h3>
           <pre><code class="language-json" data-trim>
 {
@@ -771,6 +785,7 @@ repos:
         </section>
 
         <section>
+          <span class="layer-badge badge-mcp">LAYER 9</span>
           <h3>Confused Deputy &amp; Defenses</h3>
           <div class="warn-box">
             <strong>Confused Deputy:</strong> Agent uses <em>its own</em> credentials to execute attacker-directed actions. Poisoned ticket/issue/tool output → agent performs unauthorized operations.
@@ -822,6 +837,7 @@ repos:
         </section>
 
         <section>
+          <span class="layer-badge badge-audit">LAYER 10</span>
           <h3>Monitoring Stack</h3>
           <table>
             <thead><tr><th>Tool</th><th>Built-In Logging</th><th>Recommendation</th></tr></thead>
@@ -856,6 +872,7 @@ repos:
         </section>
 
         <section>
+          <span class="layer-badge badge-gov">LAYER 11</span>
           <h3>Implementation Stages</h3>
           <table>
             <thead><tr><th>Stage</th><th>Controls</th><th>Tools</th></tr></thead>
