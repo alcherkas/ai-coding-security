@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Coding Agent Security — Defense-in-Depth Reference Architecture</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css" id="theme">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/highlight/monokai.min.css">
@@ -17,8 +20,8 @@
       --r-heading3-size: 1.1em;
     }
 
-    .reveal { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-    .reveal h1, .reveal h2, .reveal h3 { text-transform: none; font-weight: 600; }
+    .reveal { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .reveal h1, .reveal h2, .reveal h3 { text-transform: none; font-weight: 700; letter-spacing: -0.02em; }
     .reveal h1 { color: #58a6ff; }
     .reveal h2 { color: #79c0ff; }
     .reveal h3 { color: #a5d6ff; }
@@ -32,12 +35,72 @@
     .good-box { background: rgba(63, 185, 80, 0.1); border-left: 4px solid #3fb950; padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 0 4px 4px 0; }
     .info-box { background: rgba(136, 132, 216, 0.1); border-left: 4px solid #8884d8; padding: 0.5em 1em; margin: 0.4em 0; font-size: 0.85em; border-radius: 0 4px 4px 0; }
 
-    .reveal table { font-size: 0.65em; margin: 0.5em auto; border-collapse: collapse; width: 95%; }
-    .reveal table th { background: rgba(88, 166, 255, 0.2); color: #58a6ff; padding: 0.4em 0.6em; text-align: left; }
-    .reveal table td { padding: 0.35em 0.6em; border-bottom: 1px solid rgba(255,255,255,0.1); vertical-align: top; }
+    .reveal table {
+      font-size: 0.63em;
+      margin: 0.5em auto;
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 95%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(88,166,255,0.18);
+    }
+    .reveal table thead tr { background: linear-gradient(120deg, rgba(88,166,255,0.22) 0%, rgba(121,192,255,0.12) 100%); }
+    .reveal table th {
+      color: #79c0ff;
+      padding: 0.55em 0.85em;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.88em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(88,166,255,0.3);
+    }
+    .reveal table td {
+      padding: 0.42em 0.85em;
+      border-bottom: 1px solid rgba(255,255,255,0.055);
+      vertical-align: top;
+      transition: background 0.15s;
+    }
+    .reveal table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.028); }
+    .reveal table tbody tr:hover td { background: rgba(88,166,255,0.09); }
+    .reveal table tr:last-child td { border-bottom: none; }
 
-    .reveal ul, .reveal ol { font-size: 0.85em; margin-left: 0.5em; }
-    .reveal li { margin-bottom: 0.3em; line-height: 1.4; }
+    .reveal ul, .reveal ol { font-size: 0.85em; margin-left: 0.2em; padding-left: 0; list-style: none; }
+    .reveal li { margin-bottom: 0.38em; line-height: 1.5; padding-left: 1.4em; position: relative; }
+
+    /* Bullet lists — glowing dot */
+    .reveal ul > li::before {
+      content: '';
+      position: absolute;
+      left: 0.15em;
+      top: 0.58em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #58a6ff;
+      box-shadow: 0 0 6px rgba(88,166,255,0.7);
+    }
+
+    /* Ordered lists — accent counter */
+    .reveal ol { counter-reset: slick-ol; }
+    .reveal ol > li { counter-increment: slick-ol; }
+    .reveal ol > li::before {
+      content: counter(slick-ol);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.1em;
+      text-align: right;
+      color: #58a6ff;
+      font-weight: 700;
+      font-size: 0.88em;
+      line-height: 1.7;
+    }
+
+    /* Nested lists */
+    .reveal ul ul > li::before { background: #3fb950; box-shadow: 0 0 5px rgba(63,185,80,0.6); width: 5px; height: 5px; top: 0.65em; }
+    .reveal ul ul, .reveal ol ol { font-size: 0.95em; margin-top: 0.2em; }
 
     .layer-badge { display: inline-block; padding: 0.15em 0.6em; border-radius: 4px; font-weight: 700; font-size: 0.7em; margin-bottom: 0.3em; }
     .badge-infra { background: #1a1a2e; border: 1px solid #58a6ff; }
